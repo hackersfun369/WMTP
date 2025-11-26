@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMTP - WebTransport Mail Transfer Protocol</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="landing">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📧</span>
+                <span class="logo-text">WMTP</span>
+            </div>
+            <nav class="nav">
+                <a href="#features">Features</a>
+                <a href="#docs">Docs</a>
+                <a href="https://github.com/yourusername/wmtp" target="_blank">GitHub</a>
+                <a href="app.html" class="btn btn-primary">Launch App</a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>WebTransport Mail Transfer Protocol</h1>
+            <p class="hero-subtitle">
+                A modern, secure, low-latency email protocol built on QUIC
+            </p>
+            <div class="hero-buttons">
+                <a href="app.html" class="btn btn-large btn-primary">Try Demo</a>
+                <a href="#docs" class="btn btn-large btn-secondary">Documentation</a>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="features">
+            <h2>Why WMTP?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Built on QUIC</h3>
+                    <p>Faster connections with 0-RTT, multiplexed streams, and better congestion control</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Always Encrypted</h3>
+                    <p>TLS 1.3 by default. Every connection is secure from the start</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Low Latency</h3>
+                    <p>Real-time message delivery with persistent connections</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Browser Native</h3>
+                    <p>Works directly in Chrome, Edge, and Firefox via WebTransport API</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Connection migration handles network changes seamlessly</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Simple Protocol</h3>
+                    <p>JSON-based commands. Easy to implement and debug</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocol -->
+        <section id="docs" class="docs">
+            <h2>Protocol Overview</h2>
+            <div class="code-block">
+                <pre><code>// Connect to WMTP server
+const transport = new WebTransport("https://api.wmtp.online");
+await transport.ready;
+
+// Initialize session
+send({ cmd: "INIT" });
+// Response: { status: "OK", session_token: "WMTP-xxx" }
+
+// Authenticate
+send({ cmd: "AUTH", data: { email: "user@example.com" } });
+// Response: { status: "OK", authenticated: true }
+
+// Send mail (coming soon)
+send({ cmd: "SEND", data: { to: "friend@example.com", body: "Hello!" } });
+</code></pre>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>WMTP - WebTransport Mail Transfer Protocol</p>
+            <p>Built with ❤️ using Rust + WebTransport</p>
+            <p><a href="https://wmtp.online">wmtp.online</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMTP Client</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">📧</span>
+                <span class="logo-text">WMTP</span>
+            </div>
+            
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-dot disconnected"></span>
+                <span class="status-text">Disconnected</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="console">
+                    <span>💻</span> Console
+                </a>
+                <a href="#" class="nav-item" data-view="mail">
+                    <span>📬</span> Mailbox
+                </a>
+                <a href="#" class="nav-item" data-view="settings">
+                    <span>⚙️</span> Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info" id="userInfo">
+                    <span>Not authenticated</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Console View -->
+            <div class="view active" id="consoleView">
+                <div class="view-header">
+                    <h2>WMTP Console</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-small" id="clearBtn">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Connection Panel -->
+                <div class="panel">
+                    <h3>Connection</h3>
+                    <div class="form-row">
+                        <input type="text" id="serverUrl" value="https://localhost:4433" placeholder="Server URL">
+                        <button class="btn btn-primary" id="connectBtn">Connect</button>
+                        <button class="btn btn-danger" id="disconnectBtn" disabled>Disconnect</button>
+                    </div>
+                </div>
+
+                <!-- Auth Panel -->
+                <div class="panel">
+                    <h3>Authentication</h3>
+                    <div class="form-row">
+                        <input type="email" id="emailInput" placeholder="your@email.com">
+                        <button class="btn btn-primary" id="authBtn" disabled>Authenticate</button>
+                    </div>
+                </div>
+
+                <!-- Commands Panel -->
+                <div class="panel">
+                    <h3>Quick Commands</h3>
+                    <div class="button-group">
+                        <button class="btn" id="initBtn" disabled>INIT</button>
+                        <button class="btn" id="pingBtn" disabled>PING</button>
+                        <button class="btn" id="statusBtn" disabled>STATUS</button>
+                        <button class="btn" id="infoBtn" disabled>INFO</button>
+                        <button class="btn" id="logoutBtn" disabled>LOGOUT</button>
+                    </div>
+                </div>
+
+                <!-- Custom Command -->
+                <div class="panel">
+                    <h3>Custom Command</h3>
+                    <div class="form-row">
+                        <input type="text" id="customCmd" placeholder='{"cmd":"PING"}'>
+                        <button class="btn btn-primary" id="sendBtn" disabled>Send</button>
+                    </div>
+                </div>
+
+                <!-- Console Output -->
+                <div class="panel console-panel">
+                    <h3>Output</h3>
+                    <div class="console" id="console">
+                        <div class="console-line info">Welcome to WMTP Client</div>
+                        <div class="console-line info">Connect to a server to begin</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mail View (Coming Soon) -->
+            <div class="view" id="mailView">
+                <div class="view-header">
+                    <h2>Mailbox</h2>
+                </div>
+                <div class="coming-soon">
+                    <span>📬</span>
+                    <p>Mail features coming soon!</p>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div class="view" id="settingsView">
+                <div class="view-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="panel">
+                    <h3>Server Configuration</h3>
+                    <div class="form-group">
+                        <label>Default Server URL</label>
+                        <input type="text" id="defaultServer" value="https://localhost:4433">
+                    </div>
+                    <div class="form-group">
+                        <label>Auto-reconnect</label>
+                        <input type="checkbox" id="autoReconnect" checked>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/transport.js"></script>
+    <script src="js/protocol.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
